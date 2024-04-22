@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Leefont;
+    src: url(/static/ttf/Leefont.ttf);
+}
+
+/* YouSheShaYuFeiTeJianKangTi */
+@font-face {
+    font-family: ShaYvFeiTe;
+    src: url(/static/ttf/ShaYvFeiTe.ttf);
+}

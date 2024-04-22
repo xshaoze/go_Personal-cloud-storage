@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网盘系统 | 登录</title>
+    <link rel="shortcut icon" href="/static/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+</head>
+<body>
+    <div class="form">
+        <form>
+            <a href="/">
+                <img class="mb-4" src="/static/favicon.svg" alt="" width="72">
+                <h1>个人网盘系统</h1>
+            </a>
+
+            <div class="form-line">
+                账户： <input class="input_txt" type="username" id="login_input_username" placeholder="用户名">
+            </div>
+            <div class="form-line">
+                密码：<input class="input_txt" type="password" id="login_input_password" placeholder="密码">
+            </div>
+            <div class="form-line ">
+                <div class="check-txt" id="check-txt">
+                    <input type="checkbox" id="login_input_check" class="input_check" >
+                    <label for="check1">记住我(7天免登录)</label>
+                </div>
+            </div>
+            <br style="clear:both;" />
+            <div class="form-line">
+                <div class="login_but" id="login_but">
+                    <a>登录</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script>
+    
+    let check_box = document.getElementById("login_input_check")
+    let check_txt = document.getElementById("check-txt")
+    check_txt.addEventListener("click", function () {
+        check_box.checked = !check_box.checked;
+    })
+    check_box.addEventListener("click", function () {
+        check_box.checked = !check_box.checked;
+    })
+
+    document.getElementById("login_but")
+    .addEventListener("click",function () {
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userName: document.getElementById("login_input_username").value,
+                userPasswd: document.getElementById("login_input_password").value,
+                remberme: document.getElementById("login_input_check").checked
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("返回数据", data);
+                if (data["code"] == 200){
+                    window.location.href = "/"
+                }else{
+                    alert("账号或密码错误")
+                }
+            })
+    })
+    
+
+</script>
+
+<script>
+    
+</script>
+</html>

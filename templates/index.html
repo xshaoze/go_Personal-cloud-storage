@@ -1,0 +1,249 @@
+<!-- <!DOCTYPE html> -->
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网盘系统</title>
+
+    <link rel="shortcut icon" href="/static/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+</head>
+
+<body>
+    <div id="load">
+        <img src="/static/favicon.svg" alt="">
+    </div>
+
+    <div id="setting" style="display: none;">
+        <div id="settingCloseBut">
+            <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+        </div>
+
+        <div id="settingContainer">
+            <h2>修改个人信息</h2>
+            <div>
+                邮箱: <input type="email">
+            </div>
+            <div>
+                名字: <input type="text">
+            </div>
+            <div style="display: flex;justify-content: center;align-items: center;user-select: none;">
+                <div>
+                    <div style="float: left;">头像:&nbsp;</div>
+                    <div
+                        style="width: 175px;height: 175px;border: 1px solid #6c71e3;float: left;border-radius: 20px;line-height: 175px;">
+                        点击上传个人头像</div>
+                </div>
+            </div>
+            <div
+                style="margin: 0 10px;display: flex;justify-content: center;align-items: center; margin-top: 150px;user-select: none;">
+                <div style="border: 1px solid #6c71e3;
+                    border-radius: 10px;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 10px;width: 100px;">
+                    确认修改
+                </div>
+            </div>
+            <div
+                style="margin: 0 10px;display: flex;justify-content: center;align-items: center; margin-top: 10px;user-select: none;">
+                <div style="text-align: center;border: 1px solid #6c71e3;
+            border-radius: 10px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;width: 100px;">修改密码</div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <input type="file" id="fileInput" style="display: none;" />
+    <div class="container">
+        <div class="menu">
+            <div class="menu_logo">
+                <img src="/static/favicon.svg" alt="" width="50px" style="padding-right: 15px;">
+                <span class="logo_title" style="padding-right: 15px;">个人网盘系统</span>
+            </div>
+            <!--            <div style="text-align: center">网盘系统 v1.0</div>-->
+            <div style="display: flex; justify-content: center;">
+                <hr class="fengexian">
+            </div>
+            <div class="menu_list" style="user-select: none;">
+                <div class="menu_list_item">
+                    <div class="active" id="sx_myFile">我的文件</div>
+                    <div id="sx_tuPian">
+                        <svg xmlns="" width="20" height="20" fill="currentColor" class="bi bi-images"
+                            viewBox="0 0 16 16">
+                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                            <path
+                                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                        </svg>
+                        <span>图片</span>
+                    </div>
+                    <div id="sx_wendang">
+                        <svg xmlns="" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                            <path
+                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                        </svg>
+                        <span>文档</span>
+                    </div>
+                    <div id="sx_shiPing">
+                        <svg xmlns="" width="20" height="20" fill="currentColor" class="bi bi-camera-video"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" />
+                        </svg>
+                        <span>视频</span>
+                    </div>
+                    <div id="sx_yingPing">
+                        <svg xmlns="" width="20" height="20" fill="currentColor" class="bi bi-music-note-list"
+                            viewBox="0 0 16 16">
+                            <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z" />
+                            <path fill-rule="evenodd" d="M12 3v10h-1V3h1z" />
+                            <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z" />
+                            <path fill-rule="evenodd"
+                                d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                        <span>音频</span>
+                    </div>
+                    <div id="sx_fenXiang">
+                        <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-capslock"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M7.27 1.047a1 1 0 0 1 1.46 0l6.345 6.77c.6.638.146 1.683-.73 1.683H11.5v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1H1.654C.78 9.5.326 8.455.924 7.816zM14.346 8.5 8 1.731 1.654 8.5H4.5a1 1 0 0 1 1 1v1h5v-1a1 1 0 0 1 1-1zm-9.846 5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1zm6 0h-5v1h5z" />
+                        </svg>
+                        <span>分享文件</span>
+                    </div>
+                    <hr class="fengexian">
+                    <div id="garbagebin">
+                        <svg xmlns="" width="20" height="20" fill="currentColor" class="bi bi-trash"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                            <path fill-rule="evenodd"
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                        </svg>
+                        <span>回收站</span>
+                    </div>
+                </div>
+                <hr class="fengexian">
+
+                <div class="menu_list_msg">
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header_nav">
+                <div class="nav">
+                    <div class="nav_left">
+                        <div style="margin-right: 5px;">
+                            <svg xmlns="" width="28" height="28" fill="currentColor" class="bi bi-house"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207l-5-5-5 5V13.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7.207Z" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <svg xmlns="" width="28" height="28" fill="currentColor" class="bi bi-caret-left"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <svg xmlns="" width="28" height="28" fill="currentColor" class="bi bi-caret-right"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg>
+                        </div>
+                        <div class="breadcrumb" style="margin-left: 10px;">home/</div>
+                    </div>
+                    <div class="nav_right">
+                        <div style="margin:  0 10px;">
+                            <svg xmlns="" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
+                                <path
+                                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+                            </svg>
+                        </div>
+                        <div id="settingBut">
+                            <svg xmlns="" width="24" height="24" fill="currentColor" class="bi bi-gear"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                                <path
+                                    d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                            </svg>
+                        </div>
+                        <div class="item">
+                            <button onclick="location.href = '/login'" id="loginBut"> 登录 </button>
+                        </div>
+
+                        <div class="userInfo item" style="user-select: none;">
+
+                            <div id="userImg" class="userImg" style="display: none;">
+                                <img src="/static/userData/default.jpg" alt="" height="60px" width="60px">
+                            </div>
+                            <div class="userInfo1">
+                                <div id="logout">退出登录</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="header_file_button">
+                <div id="upLodaFile" style="display: none;">
+                    <span>上传文件</span>
+                </div>
+
+                <div id="downloadFile">
+                    <span>下载文件</span>
+                </div>
+                <div id="shareFile">
+                    <span>分享</span>
+                </div>
+                <div id="removeFile">
+                    <span>删除</span>
+                </div>
+                <div id="removeFileSharing">
+                    <span>取消分享</span>
+                </div>
+                <div id="huifu">
+                    <span>恢复</span>
+                </div>
+                <div id="zd_remove">
+                    <span>彻底删除</span>
+                </div>
+            </div>
+            <div class="header_title">
+                <div><input type="checkbox" name="" id="File_Check_ALL" width="15px"></div>
+                <div>文件名</div>
+                <div>修改时间</div>
+                <div>文件大小</div>
+
+            </div>
+        </div>
+        <div class="main" id="fileList" style="user-select: none;">
+            <div class="noFile" id="noFile" style="display: none;">
+                貌似没有共享的文件呢
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/js/main.js"></script>
+
+</html>
